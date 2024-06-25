@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+
+{% block context %}				
+		<!-- Start Contact Us -->
+		<section class="contact-us section" style="padding-top: 30px;">
+			<div class="container">
+				<div class="inner">
+					<div class="row"> 
+						<div class="col-lg-6">
+							<div class="contact-us-left" >
+								<!--Start Google-map -->
+								<div id="myMap">
+									<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1256.7376063876777!2d69.25722966136382!3d41.323478431426814!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38ae8b6b41613dad%3A0xa0d408f674d9b96d!2z0JzQtdC20LTRg9C90LDRgNC-0LTQvdCw0Y8g0LjRgdC70LDQvNGB0LrQsNGPINCw0LrQsNC00LXQvNC40Y8g0KPQt9Cx0LXQutC40YHRgtCw0L3QsA!5e0!3m2!1sru!2s!4v1718537165890!5m2!1sru!2s" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+								</div>
+								<!--/End Google-map -->
+							</div>
+						</div>
+						<div class="col-lg-6">
+							<div class="contact-us-form">
+								<h2>Biz bilan bog'laning</h2>
+								<p>Agar sizda qandaydir savol bo'lsa bizga yuboring!</p>
+								<!-- Form -->
+								<form class="form" method="post" action="">
+									{% csrf_token %}
+									<div class="row">
+										<div class="col-lg-6">
+											<div class="form-group">
+												<input type="text" name="name" placeholder="Ism" required="">
+											</div>
+										</div>
+										<div class="col-lg-6">
+											<div class="form-group">
+												<input type="email" name="email" placeholder="Email manzil" required="">
+											</div>
+										</div>
+										<div class="col-lg-6">
+											<div class="form-group">
+												<input type="text" name="phone" placeholder="Telefon raqam" required="">
+											</div>
+										</div>
+										<div class="col-lg-12">
+											<div class="form-group">
+												<textarea name="description" placeholder="Xabar matni" required=""></textarea>
+											</div>
+										</div>
+										<div class="col-12">
+											<div class="form-group login-btn">
+												<button class="btn" type="submit">Yuborish</button>
+											</div>
+										</div>
+									</div>
+								</form>
+								<!--/ End Form -->
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="contact-info">
+					<div class="row">
+						<!-- single-info -->
+						<div class="col-lg-4 col-12 ">
+							<div class="single-info">
+								<i class="icofont icofont-ui-call"></i>
+								<div class="content">
+									<h3>(+99871) 24- 00-56 </h3>
+									<p>info@company.com</p>
+								</div>
+							</div>
+						</div>
+						<!--/End single-info -->
+						<!-- single-info -->
+						<div class="col-lg-4 col-12 ">
+							<div class="single-info">
+								<i class="icofont-google-map"></i>
+								<div class="content">
+									<h3>Manzil: </h3>
+									<p>Toshkent shahar, A.Qodiriy 11-uy</p>
+								</div>
+							</div>
+						</div>
+						<!--/End single-info -->
+						<!-- single-info -->
+						<div class="col-lg-4 col-12 ">
+							<div class="single-info">
+								<i class="icofont icofont-wall-clock"></i>
+								<div class="content">
+									<h3>Dushanba - Shanba:<br>09:00 - 17:00</h3>
+									<p>Yakshanba dam olish kuni</p>
+								</div>
+							</div>
+						</div>
+						<!--/End single-info -->
+					</div>
+				</div>
+			</div>
+		</section>
+		<!--/ End Contact Us -->
+		<script>
+			let map;
+			async function initMap() {
+  			const { Map } = await google.maps.importLibrary("maps");
+			map = new Map(document.getElementById("map"), {
+    		center: { lat: -34.397, lng: 150.644 },
+    		zoom: 8,
+		});
+			}
+		initMap();
+		</script>
+{% endblock %}		
